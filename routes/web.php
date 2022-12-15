@@ -1,6 +1,10 @@
 <?php
 
+use App\Models\Note;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +18,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // $note = Note::limit(2)->get();
+    // return $note;
+
     return view('welcome');
 });
+
+// Route::get('notes/{note}', [NoteController::class, 'show']);
+
+Route::resource('notes', NoteController::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
