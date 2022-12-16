@@ -27,6 +27,9 @@ Route::get('/', function () {
 // Route::get('notes/{note}', [NoteController::class, 'show']);
 
 Route::resource('notes', NoteController::class);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::resource('/notes/{id}', [NoteController::class, 'destroy']);
