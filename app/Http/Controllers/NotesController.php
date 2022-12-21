@@ -45,6 +45,11 @@ class NotesController extends Controller
     {
         // dd($request);
 
+        $request->validate([
+            "title" => "required",
+            "description" => "required",
+        ]);
+
         $note = new Note();
         $note->title = $request->title;
         $note->description = $request->description;

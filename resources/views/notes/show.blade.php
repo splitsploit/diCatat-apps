@@ -13,7 +13,7 @@
                             <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('Title') }}</label>
 
                             <div class="col-md-6">
-                                <input id="title" type="text" class="form-control name="title" value="{{ $note->title }}" required readonly>
+                                <input id="title" type="text" class="form-control" name="title" value="{{ $note->title }}" required readonly>
 
                                 {{-- @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -26,7 +26,7 @@
                             <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <input id="description" type="text" class="form-control name="description" value="{{ $note->description }}" required readonly>
+                                <input id="description" type="text" class="form-control" name="description" value="{{ $note->description }}" required readonly>
 
                                 {{-- @error('email')
                                     <span class="invalid-feedback" role="alert">
