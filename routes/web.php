@@ -4,7 +4,7 @@ use App\Models\Note;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\NoteController;
+use App\Http\Controllers\NotesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 // Route::get('notes/{note}', [NoteController::class, 'show']);
 
-Route::resource('notes', NoteController::class);
+Route::resource('notes', NotesController::class);
 
 Auth::routes();
 

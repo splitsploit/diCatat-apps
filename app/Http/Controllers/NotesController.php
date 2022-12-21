@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Note;
 use Illuminate\Http\Request;
 
-class NoteController extends Controller
+class NotesController extends Controller
 {
 
     public function __construct()
@@ -31,7 +31,8 @@ class NoteController extends Controller
      */
     public function create()
     {
-        //
+        $isEdit = false;
+        return view('notes.create-edit', compact('isEdit'));
     }
 
     /**
@@ -42,7 +43,14 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+
+        $note = new Note();
+        $note->title = $request->title;
+        $note->description = $request->description;
+        $note->save();
+
+        return redirect()->route('notes.show', $note->id);
     }
 
     /**
@@ -91,6 +99,6 @@ class NoteController extends Controller
     public function destroy(Note $note)
     {
         $note->delete();
-        return redirect( route('home') );
+        return redirect()->route('home');
     }
 }
